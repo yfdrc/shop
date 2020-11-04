@@ -1,0 +1,1 @@
+{{link_to("Setup/Cat","商品类型")}} | {{link_to("Setup/Good","商品信息")}}

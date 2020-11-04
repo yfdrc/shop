@@ -1,0 +1,31 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+dl {
+  margin-bottom:5px;
+}
+
+dl dt {
+  float:left;
+  font-weight:bold;
+  margin-right:10px;
+  padding:5px;
+  width:20%;
+}
+
+dl dd {
+  margin:2px 0;
+  padding:5px 0;
+}

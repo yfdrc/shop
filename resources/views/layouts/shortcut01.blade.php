@@ -1,0 +1,1 @@
+{{link_to("User/Department","部门管理")}} | {{link_to("User/User","用户管理")}} | {{link_to("User/Role","角色管理")}} | {{link_to("User/Permission","权限管理")}} | {{link_to("User/RolePerm","角色权限")}} | {{link_to("User/UserRole","用户角色")}}

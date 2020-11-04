@@ -1,0 +1,1 @@
+{{link_to("Tongji/All","买卖统计")}} | {{link_to("Tongji/Buy","买入统计")}} | {{link_to("Tongji/Sell","卖出统计")}}
