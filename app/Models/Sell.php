@@ -13,4 +13,9 @@ class Sell extends Model
         return $this->belongsTo(Good::class);
     }
 
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
 }

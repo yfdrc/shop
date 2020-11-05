@@ -4,16 +4,16 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            快捷方式：@include("layouts.shortcut02")@can("manage", new \App\Models\Role) || {!! link_to("Setup\Good/create","增加商品信息") !!}@endcan 
+            快捷方式：@include("layouts.shortcut02")@can("manage", new \App\Models\Role) || {!! link_to("Setup\Supplier/create","增加主供货商") !!}@endcan 
         </div>
         <div class="panel-body">
             <div>
                 <form method="put" class="form-inline"]>
                     <div class="form-group">
-                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Illuminate\Support\Facades\Cache::get("goodhs") !!}">
+                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Illuminate\Support\Facades\Cache::get("supphs") !!}">
                     </div>
                     <div class="form-group">
-                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Illuminate\Support\Facades\Cache::get("goodcx") !!}" placeholder="商品名称">
+                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Illuminate\Support\Facades\Cache::get("suppcx") !!}" placeholder="名称">
                     </div>
                     <button type="submit" class="btn btn-default">确定</button>
                 </form>
@@ -21,39 +21,35 @@
             @if (count($tasks) > 0)
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        商品信息列表
+                        主供货商列表
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
                                 <th>名称</th>
-                                <th>产地</th>
-                                <th>进货价</th>
-                                <th>出货价</th>
-                                <th>保质期</th>
+                                <th>描述</th>
+                                <th>地址</th>
+                                <th>电话</th>
                                 <th></th>
                             </thead>
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td width="20%">
+                                        <td width="15%">
                                             <div>{{ $task->name }}</div>
                                         </td>
-                                        <td width="20%">
-                                            <div>{{ $task->from }}</div>
+                                        <td width="25%">
+                                            <div>{{ $task->description }}</div>
                                         </td>
-                                        <td width="10%">
-                                            <div>{{ $task->buy }}</div>
+                                        <td width="25%">
+                                            <div>{{ $task->address }}</div>
                                         </td>
-                                        <td width="10%">
-                                            <div>{{ $task->sell }}</div>
-                                        </td>
-                                        <td width="10%">
-                                            <div>{{ $task->howlong }}</div>
+                                        <td width="15%">
+                                            <div>{{ $task->telephone }}</div>
                                         </td>
                                         <td>
-                                            @can("show", new \App\Models\Role){!! link_to("Setup\Good/$task->id","详情") !!}@endcan @can("manage", new \App\Models\Role) | {!! link_to("Setup\Good/$task->id/edit","编辑") !!}@endcan @can("admin", new \App\Models\Role)
- | {!! link_to("Setup\Good/$task->id","删除") !!}@endcan
+                                            @can("show", new \App\Models\Role){!! link_to("Setup\Supplier/$task->id","详情") !!}@endcan @can("manage", new \App\Models\Role) | {!! link_to("Setup\Supplier/$task->id/edit","编辑") !!}@endcan @can("admin", new \App\Models\Role)
+ | {!! link_to("Setup\Supplier/$task->id","删除") !!}@endcan
                                         </td>
                                     </tr>
                                 @endforeach

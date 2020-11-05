@@ -19,6 +19,18 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("good_id", good->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label("customer_id", "客户", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("customer_id", customer->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("price", "价格", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
                                     {{ Form::text("price", null, ["class"=>"form-control"]) }}
@@ -33,7 +45,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("date", null, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", date("Y-m-d",strtotime($task->date)), ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

@@ -25,6 +25,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                {{ Form::label("customer_id", "客户", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::select("customer_id",$custs, null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("price", "价格", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
                                     {{ Form::text("price", null, ["class"=>"form-control"]) }}
@@ -39,7 +45,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("date", null, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", 2020-11-05, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

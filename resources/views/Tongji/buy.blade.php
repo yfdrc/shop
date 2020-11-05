@@ -50,7 +50,7 @@
                                             <div>{{ $task->amount }}</div>
                                         </td>
                                         <td>
-                                            <div>{{ ((int)($task->money*100/$task->amount))/100.0 }}</div>
+                                            <div>{{ $task->amount==0 ? "" : ((int)($task->money*100/$task->amount))/100.0 }}</div>
                                         </td>
                                     </tr>
                                 @endforeach

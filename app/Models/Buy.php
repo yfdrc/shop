@@ -13,4 +13,9 @@ class Buy extends Model
         return $this->belongsTo(Good::class);
     }
 
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
 }

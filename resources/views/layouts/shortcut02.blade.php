@@ -1,1 +1,1 @@
-{{link_to("Setup/Cat","商品类型")}} | {{link_to("Setup/Good","商品信息")}}
+{{link_to("Setup/Supp","主供货商")}} | {{link_to("Setup/Cust","长期客户")}} | {{link_to("Setup/Cat","商品类型")}} | {{link_to("Setup/Good","商品信息")}}

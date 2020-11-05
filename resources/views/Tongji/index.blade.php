@@ -68,7 +68,7 @@
                                             <div>{{ $task->amount }}</div>
                                         </td>
                                         <td>
-                                            <div>{{ ((int)($task->money*100/$task->amount))/100.0 }}</div>
+                                            <div>{{  $task->amount==0 ? "" : ((int)($task->money*100/$task->amount))/100.0 }}</div>
                                         </td>
                                         <td>
                                             <div>{{ $task->smoney }}</div>
@@ -77,7 +77,7 @@
                                             <div>{{ $task->samount }}</div>
                                         </td>
                                         <td>
-                                            <div>{{ ((int)($task->smoney*100/$task->samount))/100.0 }}</div>
+                                            <div>{{  $task->samount==0 ? "" : ((int)($task->smoney*100/$task->samount))/100.0 }}</div>
                                         </td>
                                         <td>
                                             <div>{{ (int)($task->smoney - $task->money) }}</div>

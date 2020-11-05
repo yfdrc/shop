@@ -22,16 +22,19 @@ Route::group(['namespace' => 'Home'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'Install'], function () {
         Route::get('test', 'TestController@index');
+        Route::get('makecust', 'ShopController@cust');
+        Route::get('makesupp', 'ShopController@supp');
         Route::get('makecat', 'ShopController@cat');
         Route::get('makegood', 'ShopController@good');
         Route::get('makebuy', 'ShopController@buy');
         Route::get('makesell', 'ShopController@sell');
         Route::get('maketj', 'ShopController@Tongji');
-        Route::get('maketjbuy', 'ShopController@TongjiBuy');
-        Route::get('maketjsell', 'ShopController@TongjiSell');
+        Route::get('maketj', 'ShopController@Tongji');
     });
 
     Route::group(['namespace' => 'Setup'], function () {
+        Route::resource('Setup/Cust', 'CustomerController');
+        Route::resource('Setup/Supp', 'SupplierController');
         Route::resource('Setup/Cat', 'CatController');
         Route::resource('Setup/Good', 'GoodController');
     });

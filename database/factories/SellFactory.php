@@ -13,45 +13,21 @@ use Faker\Generator as Faker;
 |
 */
 
+
 $factory->define(App\Models\Sell::class, function (Faker $faker) {
     $m1 = "2020-8-01";
     $m2 = "2020-10-30";
-    $r = random_int(1, 3);
-    switch ($r) {
-        case 1:
-            return [
-                'good_id' => 1,
-                'name' => "红茶01",
-                'price' => $a = $faker->randomFloat(0, 40, 50),
-                'amount' => $b = $faker->randomFloat(1, 1, 10),
-                'money' => $a * $b,
-                'date' => $faker->dateTimeBetween($m1, $m2, 'PRC'),
-                'who' => str_random(5),
-            ];
-            break;
+    $r1 = random_int(1, 20);
+    $r2 = random_int(1, 10);
 
-        case 2:
-            return [
-                'good_id' => 2,
-                'name' => "绿茶01",
-                'price' => $a = $faker->randomFloat(0, 60, 70),
-                'amount' => $b = $faker->randomFloat(1, 1, 10),
-                'money' => $a * $b,
-                'date' => $faker->dateTimeBetween($m1, $m2, 'PRC'),
-                'who' => str_random(5),
-            ];
-            break;
-
-        case 3:
-            return [
-                'good_id' => 3,
-                'name' => "铁观音",
-                'price' => $a = $faker->randomFloat(0, 80, 90),
-                'amount' => $b = $faker->randomFloat(1, 1, 10),
-                'money' => $a * $b,
-                'date' => $faker->dateTimeBetween($m1, $m2, 'PRC'),
-                'who' => str_random(5),
-            ];
-            break;
-    }
+    return [
+        'good_id' => $r1,
+        'customer_id' => $r2,
+        'name' =>\App\Models\Good::find($r1)->name,
+        'price' => $a = $faker->randomFloat(0, 5*$r1, 5*$r1+10),
+        'amount' => $b = $faker->randomFloat(0, 1, 10),
+        'money' => $a * $b,
+        'date' => $faker->dateTimeBetween($m1, $m2, 'PRC'),
+        'who' => str_random(5),
+    ];
 });

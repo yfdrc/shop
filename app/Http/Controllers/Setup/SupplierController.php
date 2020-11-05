@@ -3,24 +3,23 @@
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
  * Date: 2020-11-05
- * Time: 09:45
+ * Time: 03:06
  */
 
-namespace App\Http\Controllers\Work;
+namespace App\Http\Controllers\Setup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Role;
-use App\Models\Sell;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Cache;
-use App\Models\Good;
 
     /**
     * Create a new controller instance.
     *
     * @return void
     */
-class SellController extends Controller
+class SupplierController extends Controller
 {
     protected $urltoparent;
     protected $urltoview;
@@ -32,8 +31,8 @@ class SellController extends Controller
     */
     public function __construct()
     {
-        $this->urltoparent = url("Work\Sell");
-        $this->urltoview = "Work.Sell";
+        $this->urltoparent = url("Setup\Supplier");
+        $this->urltoview = "Setup.Supplier";
     }
 
     /**
@@ -44,8 +43,8 @@ class SellController extends Controller
     public function index(Request $request)
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $cachename = "sellcx";
-            $cachevalue = "sellhs";
+            $cachename = "suppcx";
+            $cachevalue = "supphs";
             if(!$request->exists("xshs")){
                 $cxnr = Cache::get($cachename);
                 $xshs = Cache::get($cachevalue);
@@ -58,7 +57,7 @@ class SellController extends Controller
                 Cache::forever($cachevalue, $xshs);
             }
             $cxtj = '%' . $cxnr . '%';
-            $models = Sell::where('name', 'like', $cxtj)->paginate($xshs);
+            $models = Supplier::where('name', 'like', $cxtj)->paginate($xshs);
             return view($this->urltoview . ".index", ["tasks" => $models]);
         }
     }
@@ -70,10 +69,8 @@ class SellController extends Controller
     */
     public function create()
     {
-        if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $tasks = drc_selectAll("goods");
-            $custs = drc_selectAll("customers");
-            return view($this->urltoview . ".create", ["tasks" => $tasks ,"custs" => $custs ]);
+        if (auth()->check() and auth()->user()->can("manage", new Role)) {
+            return view($this->urltoview . ".create");
         }
     }
 
@@ -85,10 +82,10 @@ class SellController extends Controller
     */
     public function store(Request $request)
     {
-        if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $this->validate($request, []);
+        if (auth()->check() and auth()->user()->can("manage", new Role)) {
+            $this->validate($request, ["name" => "required"]);
             $input = $request->all();
-            Sell::create($input);
+            Supplier::create($input);
             return redirect($this->urltoparent);
         }
         return redirect($this->urltoparent)->withErrors([".你没有新建权限。."]);
@@ -102,8 +99,8 @@ class SellController extends Controller
     */
     public function show($id)
     {
-        if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $model = Sell::findOrFail($id);
+        if (auth()->check() and auth()->user()->can("show", new Role)) {
+            $model = Supplier::findOrFail($id);
             return view($this->urltoview . ".show", ["task" => $model]);
         }
         return redirect($this->urltoparent)->withErrors([".你没有详情权限。."]);
@@ -117,8 +114,8 @@ class SellController extends Controller
     */
     public function edit($id)
     {
-        if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $model = Sell::findOrFail($id);
+        if (auth()->check() and auth()->user()->can("manage", new Role)) {
+            $model = Supplier::findOrFail($id);
             return view($this->urltoview . ".edit", ["task" => $model]);
         }
         return redirect($this->urltoparent)->withErrors([".你没有编辑权限。."]);
@@ -133,9 +130,9 @@ class SellController extends Controller
     */
     public function update(Request $request, $id)
     {
-        if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $this->validate($request, []);
-            $model = Sell::findOrFail($id);
+        if (auth()->check() and auth()->user()->can("manage", new Role)) {
+            $this->validate($request, ["name" => "required"]);
+            $model = Supplier::findOrFail($id);
             $input = $request->all();
             $model->fill($input)->save();
             return redirect($this->urltoparent);
@@ -152,7 +149,7 @@ class SellController extends Controller
     public function destroy($id)
     {
         if (auth()->check() and auth()->user()->can("admin", new Role)) {
-            $model = Sell::findOrFail($id);
+            $model = Supplier::findOrFail($id);
             $model->delete();
             return redirect($this->urltoparent);
         }

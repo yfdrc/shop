@@ -4,15 +4,15 @@
 
     <div class="panel panel-success">
         <div class="panel-heading">
-            快捷方式：@include("layouts.shortcut03") || {!! link_to("Work\Buy/create","增加买入商品") !!} |  {!! link_to("Work\Buy/$task->id/edit","编辑买入商品") !!} 
+            快捷方式：@include("layouts.shortcut02") || {!! link_to("Setup\Supplier/create","增加主供货商") !!} |  {!! link_to("Setup\Supplier/$task->id/edit","编辑主供货商") !!} 
         </div>
         <div class="panel-body">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    买入商品详情
+                    主供货商详情
                 </div>
                 <div class="panel-body">
-                    {{ Form::model($task, ["url"=>"Work\Buy/$task->id", "method" => "DELETE", "class" => "form-horizontal"]) }}
+                    {{ Form::model($task, ["url"=>"Setup\Supplier/$task->id", "method" => "DELETE", "class" => "form-horizontal"]) }}
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
@@ -20,39 +20,45 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("supplier->name", "供货商", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("supplier->name", $task->supplier->name, ["class"=>"form-control"]) }}
+                                {{ Form::label("description", $task->description, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("money", "金额", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("address", "地址", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("money", $task->money, ["class"=>"form-control"]) }}
+                                {{ Form::label("address", $task->address, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("price", "价格", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("telephone", "电话", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("price", $task->price, ["class"=>"form-control"]) }}
+                                {{ Form::label("telephone", $task->telephone, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("amount", "数量", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("amount", $task->amount, ["class"=>"form-control"]) }}
+                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("date", $task->date, ["class"=>"form-control"]) }}
+                                {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("who", "经手人", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("address", "地址", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("who", $task->who, ["class"=>"form-control"]) }}
+                                {{ Form::label("address", $task->address, ["class"=>"form-control"]) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label("telephone", "电话", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::label("telephone", $task->telephone, ["class"=>"form-control"]) }}
                             </div>
                         </div>
                             <hr width="90%">

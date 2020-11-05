@@ -24,12 +24,13 @@
                         卖出商品列表
                     </div>
                     <div class="panel-body">
-                        <table class="table table-striped table-responsive">
+                        <table class="table table-striped task-table">
                             <thead>
                                 <th>名称</th>
+                                <th>客户</th>
                                 <th>价格</th>
                                 <th>数量</th>
-                                <th>成交额</th>
+                                <th>金额</th>
                                 <th>日期</th>
                                 <th>经手人</th>
                                 <th></th>
@@ -40,17 +41,20 @@
                                         <td width="20%">
                                             <div>{{ $task->good->name }}</div>
                                         </td>
-                                        <td width="10%">
-                                            <div>{{ number_format($task->price,2) }}</div>
+                                        <td width="15%">
+                                            <div>{{ $task->customer->name }}</div>
                                         </td>
                                         <td width="10%">
-                                            <div>{{ number_format($task->amount,2) }}</div>
+                                            <div>{{ $task->price }}</div>
                                         </td>
                                         <td width="10%">
-                                            <div>{{ number_format($task->money,2) }}</div>
+                                            <div>{{ $task->amount }}</div>
                                         </td>
                                         <td width="10%">
-                                            <div>{{ $task->date }}</div>
+                                            <div>{{ $task->money }}</div>
+                                        </td>
+                                        <td width="10%">
+                                            <div>{{ date("Y-m-d",strtotime($task->date)) }}</div>
                                         </td>
                                         <td width="10%">
                                             <div>{{ $task->who }}</div>
