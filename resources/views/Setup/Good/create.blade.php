@@ -19,6 +19,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("cat_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::select("cat_id",$tasks, null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
                                     {{ Form::text("name", null, ["class"=>"form-control"]) }}
@@ -27,9 +33,27 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
+                        {{ Form::label("from", "产地", ["class"=>"col-sm-3 control-label"]) }}
                         <div class="col-sm-6">
-                            {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
+                            {{ Form::text("from", null, ["class"=>"form-control"]) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label("buy", "进价", ["class"=>"col-sm-3 control-label"]) }}
+                        <div class="col-sm-6">
+                            {{ Form::text("buy", null, ["class"=>"form-control"]) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label("sell", "售价", ["class"=>"col-sm-3 control-label"]) }}
+                        <div class="col-sm-6">
+                            {{ Form::text("sell", null, ["class"=>"form-control"]) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label("howlong", "保质期", ["class"=>"col-sm-3 control-label"]) }}
+                        <div class="col-sm-6">
+                            {{ Form::text("howlong", null, ["class"=>"form-control"]) }}
                         </div>
                     </div>
                     <div class="form-group">

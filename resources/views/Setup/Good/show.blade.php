@@ -14,27 +14,39 @@
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"Setup\Good/$task->id", "method" => "DELETE", "class" => "form-horizontal"]) }}
                         <div class="form-group">
-                            {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("cat->name", "类型", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
-                            <div class="col-sm-6">
-                                {{ Form::label("description", $task->description, ["class"=>"form-control"]) }}
+                                {{ Form::text("cat->name", $task->cat->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
+                                {{ Form::text("name", $task->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
+                            {{ Form::label("from", "产地", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
+                                {{ Form::text("from", $task->from, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label("buy", "进价", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::text("buy", $task->buy, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label("sell", "售价", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::text("sell", $task->sell, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label("howlong", "保质期", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::text("howlong", $task->howlong, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                             <hr width="90%">

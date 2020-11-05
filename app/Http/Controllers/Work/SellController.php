@@ -3,7 +3,7 @@
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
  * Date: 2020-11-05
- * Time: 09:45
+ * Time: 15:00
  */
 
 namespace App\Http\Controllers\Work;
@@ -88,6 +88,8 @@ class SellController extends Controller
         if (auth()->check() and auth()->user()->can("index", new Role)) {
             $this->validate($request, []);
             $input = $request->all();
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
+            $input["name"] = Good::find($input["good_id"])->name;
             Sell::create($input);
             return redirect($this->urltoparent);
         }
@@ -137,6 +139,7 @@ class SellController extends Controller
             $this->validate($request, []);
             $model = Sell::findOrFail($id);
             $input = $request->all();
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             $model->fill($input)->save();
             return redirect($this->urltoparent);
         }

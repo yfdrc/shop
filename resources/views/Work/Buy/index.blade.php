@@ -54,7 +54,7 @@
                                             <div>{{ $task->money }}</div>
                                         </td>
                                         <td width="10%">
-                                            <div>{{ $task->date }}</div>
+                                            <div>{{ date("Y-m-d",strtotime($task->date)) }}</div>
                                         </td>
                                         <td width="10%">
                                             <div>{{ $task->who }}</div>

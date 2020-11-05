@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("date", null, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", date("Y-m-d",strtotime($task->date)), ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

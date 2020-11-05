@@ -16,43 +16,43 @@
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
+                                {{ Form::text("name", $task->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("supplier->name", "供货商", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("supplier->name", $task->supplier->name, ["class"=>"form-control"]) }}
+                                {{ Form::text("supplier->name", $task->supplier->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("money", "金额", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("money", $task->money, ["class"=>"form-control"]) }}
+                                {{ Form::text("money", $task->money, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("price", "价格", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("price", $task->price, ["class"=>"form-control"]) }}
+                                {{ Form::text("price", $task->price, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("amount", "数量", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("amount", $task->amount, ["class"=>"form-control"]) }}
+                                {{ Form::text("amount", $task->amount, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
-                            <div class="col-sm-6">
-                                {{ Form::label("date", $task->date, ["class"=>"form-control"]) }}
+                        <div class="col-sm-6">
+                                {{ Form::date("date", date("Y-m-d",strtotime($task->date)), ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("who", "经手人", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("who", $task->who, ["class"=>"form-control"]) }}
+                                {{ Form::text("who", $task->who, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                             <hr width="90%">

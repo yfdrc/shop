@@ -3,7 +3,7 @@
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
  * Date: 2020-11-05
- * Time: 07:23
+ * Time: 14:52
  */
 
 namespace App\Http\Controllers\Work;
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\Buy;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Good;
 
     /**
     * Create a new controller instance.

@@ -33,8 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['namespace' => 'Setup'], function () {
-        Route::resource('Setup/Cust', 'CustomerController');
-        Route::resource('Setup/Supp', 'SupplierController');
+        Route::resource('Setup/Customer', 'CustomerController');
+        Route::resource('Setup/Supplier', 'SupplierController');
         Route::resource('Setup/Cat', 'CatController');
         Route::resource('Setup/Good', 'GoodController');
     });

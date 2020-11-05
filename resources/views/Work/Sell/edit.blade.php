@@ -21,13 +21,13 @@
                             <div class="form-group">
                                 {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("good_id", good->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                                    {{ Form::label("good_id", $task->good->name, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 {{ Form::label("customer_id", "客户", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("customer_id", customer->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                                    {{ Form::label("customer_id", $task->customer->name, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

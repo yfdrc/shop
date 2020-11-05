@@ -16,25 +16,25 @@
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
+                                {{ Form::text("name", $task->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("description", $task->description, ["class"=>"form-control"]) }}
+                                {{ Form::text("description", $task->description, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
-                                {{ Form::label("name", $task->name, ["class"=>"form-control"]) }}
+                                {{ Form::text("name", $task->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                         <div class="form-group">
                             {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
-                            <div class="col-sm-6">
-                                {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
+                        <div class="col-sm-6">
+                                {{ Form::textarea("description", $task->description, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
                             </div>
                         </div>
                             <hr width="90%">

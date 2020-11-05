@@ -2,8 +2,8 @@
 /**
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
- * Date: 2020-10-29
- * Time: 07:24
+ * Date: 2020-11-05
+ * Time: 15:42
  */
 
 namespace App\Http\Controllers\Setup;
@@ -70,7 +70,8 @@ class GoodController extends Controller
     public function create()
     {
         if (auth()->check() and auth()->user()->can("manage", new Role)) {
-            return view($this->urltoview . ".create");
+            $tasks = drc_selectAll("cats");
+            return view($this->urltoview . ".create", ["tasks" => $tasks ]);
         }
     }
 

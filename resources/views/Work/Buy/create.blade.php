@@ -19,6 +19,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::select("good_id",$tasks, null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("supplier_id", "供货商", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
                                     {{ Form::select("supplier_id",$supps, null, ["class"=>"form-control"]) }}
@@ -39,7 +45,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::text("date", null, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", 2020-11-05, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

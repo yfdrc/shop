@@ -28,10 +28,10 @@
                     </div>
                     <div class="form-group">
                         {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
-                        <div class="col-sm-6">
-                            {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
-                        </div>
-                    </div>
+                                <div class="col-sm-6">
+                                    {{ Form::textarea("description", null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
                             <button type="submit" class="btn btn-success">确定增加</button>
