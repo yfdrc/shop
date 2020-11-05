@@ -19,6 +19,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("cat_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::label("cat_id", $task->good->cat->name, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
                                     {{ Form::label("good_id", $task->good->name, ["class"=>"form-control"]) }}

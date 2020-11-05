@@ -14,6 +14,12 @@
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"Work\Buy/$task->id", "method" => "DELETE", "class" => "form-horizontal"]) }}
                         <div class="form-group">
+                            {{ Form::label("good->cat->name", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::text("good->cat->name", $task->good->cat->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">
                                 {{ Form::text("name", $task->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}

@@ -218,7 +218,7 @@ class ShopController extends BaseController
         $pz["shortcutflag"] = true;
         $pz["shortcut"] = "shortcut02";
 
-        $pz["index"] = ["name" => ["名称",InputCs::Text,"20%"], "from" => ["产地",InputCs::Text,"20%"], "buy" => ["进货价",InputCs::Text,"10%"], "sell" => ["出货价",InputCs::Text,"10%"], "howlong" => ["保质期",InputCs::Text,"10%"]];
+        $pz["index"] = ["cat->name" => ["类型",InputCs::Text,"10%"],"name" => ["名称",InputCs::Text,"20%"], "from" => ["产地",InputCs::Text,"20%"], "buy" => ["进货价",InputCs::Text,"10%"], "sell" => ["出货价",InputCs::Text,"10%"], "howlong" => ["保质期",InputCs::Text,"10%"]];
         $pz["show"] = ["cat->name" => "类型"];
         $pz["create"] = ["cat_id" => ["类型",InputCs::Select,"tasks"]];
         $pz["edit"] = ["cat_id" => ["类型",InputCs::TextRead,"cat->name"]];
@@ -274,10 +274,10 @@ class ShopController extends BaseController
         $pz["shortcutflag"] = true;
         $pz["shortcut"] = "shortcut03";
 
-        $pz["index"] = ["good->name" => ["名称",InputCs::Text,"20%"],"supplier->name" => ["供货商",InputCs::Text,"15%"], "price" => ["价格",InputCs::Text,"10%"], "amount" => ["数量",InputCs::Text,"10%"], "money" => ["金额",InputCs::Text,"10%"], "date" => ["日期",InputCs::Date,"10%"], "who" => ["经手人",InputCs::Text,"10%"]];
-        $pz["show"] = ["name" => "名称","supplier->name" => "供货商","money" => "金额"];
+        $pz["index"] = ["good->cat->name" => ["类型",InputCs::Text,"10%"],"good->name" => ["名称",InputCs::Text,"15%"],"supplier->name" => ["供货商",InputCs::Text,"15%"], "price" => ["价格",InputCs::Text,"5%"], "amount" => ["数量",InputCs::Text,"5%"], "money" => ["金额",InputCs::Text,"5%"], "date" => ["日期",InputCs::Date,"10%"], "who" => ["经手人",InputCs::Text,"10%"]];
+        $pz["show"] = ["good->cat->name" => "类型","name" => "名称","supplier->name" => "供货商","money" => "金额"];
         $pz["create"] = ["good_id" => ["名称",InputCs::Select,"tasks"],"supplier_id" => ["供货商",InputCs::Select,"supps"]];
-        $pz["edit"] = ["good_id" => ["名称",InputCs::TextRead,"good->name"],"supplier_id" => ["供货商",InputCs::TextRead,"supplier->name"]];
+        $pz["edit"] = ["cat_id" => ["类型",InputCs::TextRead,"good->cat->name"],"good_id" => ["名称",InputCs::TextRead,"good->name"],"supplier_id" => ["供货商",InputCs::TextRead,"supplier->name"]];
         $pz["bixu"] = ["price" => "价格", "amount" => "数量", "date" => ["日期",InputCs::Date], "who" => "经手人"];
         $pz["qita"] = [];
 

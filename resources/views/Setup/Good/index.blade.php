@@ -26,6 +26,7 @@
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
+                                <th>类型</th>
                                 <th>名称</th>
                                 <th>产地</th>
                                 <th>进货价</th>
@@ -36,6 +37,9 @@
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
+                                        <td width="10%">
+                                            <div>{{ $task->cat->name }}</div>
+                                        </td>
                                         <td width="20%">
                                             <div>{{ $task->name }}</div>
                                         </td>

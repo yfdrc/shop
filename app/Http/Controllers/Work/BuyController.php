@@ -3,7 +3,7 @@
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
  * Date: 2020-11-05
- * Time: 14:52
+ * Time: 16:14
  */
 
 namespace App\Http\Controllers\Work;
@@ -86,7 +86,6 @@ class BuyController extends Controller
     public function store(Request $request)
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $this->validate($request, []);
             $input = $request->all();
             $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             $input["name"] = Good::find($input["good_id"])->name;
@@ -136,7 +135,6 @@ class BuyController extends Controller
     public function update(Request $request, $id)
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $this->validate($request, []);
             $model = Buy::findOrFail($id);
             $input = $request->all();
             $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
