@@ -11,46 +11,44 @@
 |
 */
 
+Route::group(['prefix' => 'Ajax', 'namespace' => 'Ajax'], function(){
+    Route::get('Cat', 'AjaxController@cat');
+});
+
 Route::group(['namespace' => 'Home'], function () {
-    Route::group(['middleware' => ['web', 'auth']], function () {
-        Route::get('/contact', 'HomeController@contact')->name('contact');
-        Route::get('/about', 'HomeController@about')->name('about');
+    Route::group(['prefix' => 'Home','middleware' => ['web', 'auth']], function () {
+        Route::get('Contact', 'HomeController@contact')->name('contact');
+        Route::get('About', 'HomeController@about')->name('about');
     });
     Route::get('/', 'HomeController@index')->name('home');
 });
 
-Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function(){
-    Route::post('cat', 'AjaxController@cat');
-});
-
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['namespace' => 'Install'], function () {
-        Route::get('test', 'TestController@index');
-        Route::get('makecust', 'ShopController@cust');
-        Route::get('makesupp', 'ShopController@supp');
-        Route::get('makecat', 'ShopController@cat');
-        Route::get('makegood', 'ShopController@good');
-        Route::get('makebuy', 'ShopController@buy');
-        Route::get('makesell', 'ShopController@sell');
-        Route::get('maketj', 'ShopController@Tongji');
-        Route::get('maketj', 'ShopController@Tongji');
+    Route::group(['prefix' => 'Make','namespace' => 'Install'], function () {
+        Route::get('Cust', 'ShopController@cust');
+        Route::get('Supp', 'ShopController@supp');
+        Route::get('Cat', 'ShopController@cat');
+        Route::get('Good', 'ShopController@good');
+        Route::get('Buy', 'ShopController@buy');
+        Route::get('Sell', 'ShopController@sell');
+        Route::get('Tj', 'ShopController@Tongji');
     });
 
-    Route::group(['namespace' => 'Setup'], function () {
-        Route::resource('Setup/Customer', 'CustomerController');
-        Route::resource('Setup/Supplier', 'SupplierController');
-        Route::resource('Setup/Cat', 'CatController');
-        Route::resource('Setup/Good', 'GoodController');
+    Route::group(['prefix' => 'Setup', 'namespace' => 'Setup'], function () {
+        Route::resource('Customer', 'CustomerController');
+        Route::resource('Supplier', 'SupplierController');
+        Route::resource('Cat', 'CatController');
+        Route::resource('Good', 'GoodController');
     });
 
-    Route::group(['namespace' => 'Work'], function () {
-        Route::resource('Work/Buy', 'BuyController');
-        Route::resource('Work/Sell', 'SellController');
+    Route::group(['prefix' => 'Work', 'namespace' => 'Work'], function () {
+        Route::resource('Buy', 'BuyController');
+        Route::resource('Sell', 'SellController');
     });
 
-    Route::group(['namespace' => 'Tongji'], function () {
-        Route::get('Tongji/All', 'TongjiController@index');
-        Route::get('Tongji/Buy', 'TongjiController@buy');
-        Route::get('Tongji/Sell', 'TongjiController@sell');
+    Route::group(['prefix' => 'Tongji', 'namespace' => 'Tongji'], function () {
+        Route::get('All', 'TongjiController@index');
+        Route::get('Buy', 'TongjiController@buy');
+        Route::get('Sell', 'TongjiController@sell');
     });
 });

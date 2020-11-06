@@ -16,8 +16,8 @@
                     <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>{!! link_to("/","主页") !!}</li>
-                        <li>{!! link_to("contact","联系我们") !!}</li>
-                        <li>{!! link_to("about","关于系统") !!}</li>
+                        <li>{!! link_to("/Home/Contact","联系我们") !!}</li>
+                        <li>{!! link_to("/Home/About","关于系统") !!}</li>
                     </ul>
                 </li>
                 {{--<li class="dropdown">--}}
@@ -36,13 +36,13 @@
                     {{--<ul class="dropdown-menu">--}}
                         {{--<li>{!! link_to("initdb","初始数据库") !!}</li>--}}
                         {{--<li>{!! link_to("makeall","生成USER") !!}</li>--}}
-                        {{--<li>{!! link_to("makecust","生成客户") !!}</li>--}}
-                        {{--<li>{!! link_to("makesupp","生成供货商") !!}</li>--}}
-                        {{--<li>{!! link_to("makecat","生成类型") !!}</li>--}}
-                        {{--<li>{!! link_to("makegood","生成商品") !!}</li>--}}
-                        {{--<li>{!! link_to("makebuy","生成买入") !!}</li>--}}
-                        {{--<li>{!! link_to("makesell","生成卖出") !!}</li>--}}
-                        {{--<li>{!! link_to("maketj","生成统计") !!}</li>--}}
+
+                        {{--<li>{!! link_to("Make/Cust","生成客户") !!}</li>--}}
+                        {{--<li>{!! link_to("Make/Supp","生成供货商") !!}</li>--}}
+                        {{--<li>{!! link_to("Make/Cat","生成类型") !!}</li>--}}
+                        {{--<li>{!! link_to("Make/Good","生成商品") !!}</li>--}}
+                        {{--<li>{!! link_to("Make/Buy","生成买入") !!}</li>--}}
+                        {{--<li>{!! link_to("Make/Sell","生成卖出") !!}</li>--}}
                     {{--</ul>--}}
                 {{--</li>--}}
                 <li class="dropdown">

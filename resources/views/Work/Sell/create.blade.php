@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-info">
+    <div class="panel panel-success">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03")
         </div>
@@ -19,9 +19,15 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("good_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::select("cat_id",$tasks, null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::select("good_id",$tasks, null, ["class"=>"form-control"]) }}
+                                    {{ Form::select("good_id",[], null, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,4 +73,35 @@
         </div>
     </div>
 
+@endsection
+
+@section("script")
+    <script language="JavaScript">
+        function getGoods(id) {
+            $.ajax({
+                type: "get",
+                url: "{{ url('Ajax/Cat') }}",
+                dataType: 'json',
+                header: {'X-CRSF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    "id": id,
+                },
+                success: function (data,type) {
+                    if(type == 'success'){
+                        $("select[name='good_id']").empty();
+                        $.each(data, function(id, label){
+                            $("select[name='good_id']").append($("<option>").val(id).text(label));
+                        });
+                    }
+                },
+            });
+        };
+
+        $("select[name='cat_id']").change(function () {
+            getGoods($("select[name='cat_id']").val());
+        });
+
+        $("select[name='cat_id']").change();
+
+    </script>
 @endsection

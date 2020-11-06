@@ -14,8 +14,9 @@ use App\Models\Role;
 use App\Models\Buy;
 use Illuminate\Support\Facades\Cache;
 use App\Models\Good;
+use Illuminate\Support\Facades\Log;
 
-    /**
+/**
     * Create a new controller instance.
     *
     * @return void

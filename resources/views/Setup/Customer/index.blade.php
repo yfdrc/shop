@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-info">
+    <div class="panel panel-default">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut02")@can("manage", new \App\Models\Role) || {!! link_to("Setup\Customer/create","增加长期客户") !!}@endcan 
         </div>

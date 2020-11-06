@@ -288,7 +288,7 @@ class ShopController extends BaseController
 
         $pz["index"] = ["good->cat->name" => ["类型",InputCs::Text,"10%"],"good->name" => ["名称",InputCs::Text,"15%"],"supplier->name" => ["供货商",InputCs::Text,"15%"], "price" => ["价格",InputCs::Text,"8%"], "amount" => ["数量",InputCs::Text,"8%"], "money" => ["金额",InputCs::Text,"8%"], "date" => ["日期",InputCs::Date,"10%"], "who" => ["经手人",InputCs::Text,"10%"]];
         $pz["show"] = ["good->cat->name" => "类型","name" => "名称","supplier->name" => "供货商","money" => "金额"];
-        $pz["create"] = ["good_id" => ["名称",InputCs::Select,"tasks"],"supplier_id" => ["供货商",InputCs::Select,"supps"]];
+        $pz["create"] = ["cat_id" => ["类型",InputCs::Select,"tasks"],"good_id" => ["名称",InputCs::Select,""],"supplier_id" => ["供货商",InputCs::Select,"supps"]];
         $pz["edit"] = ["cat_id" => ["类型",InputCs::TextRead,"good->cat->name"],"good_id" => ["名称",InputCs::TextRead,"good->name"],"supplier_id" => ["供货商",InputCs::TextRead,"supplier->name"]];
         $pz["bixu"] = ["price" => "价格", "amount" => "数量", "date" => ["日期",InputCs::Date], "who" => "经手人"];
         $pz["qita"] = [];
@@ -348,7 +348,7 @@ class ShopController extends BaseController
 
         $pz["index"] = ["good->cat->name" => ["类型",InputCs::Text,"10%"],"good->name" => ["名称",InputCs::Text,"15%"],"customer->name" => ["客户",InputCs::Text,"15%"], "price" => ["价格",InputCs::Text,"5%"], "amount" => ["数量",InputCs::Text,"5%"], "money" => ["金额",InputCs::Text,"5%"], "date" => ["日期",InputCs::Date,"10%"], "who" => ["经手人",InputCs::Text,"10%"]];
         $pz["show"] = ["good->cat->name" => "类型","name" => "名称","customer->name" => "客户","money" => "金额"];
-        $pz["create"] = ["good_id" => ["名称",InputCs::Select,"tasks"],"customer_id" => ["客户",InputCs::Select,"custs"]];
+        $pz["create"] = ["cat_id" => ["类型",InputCs::Select,"tasks"],"good_id" => ["名称",InputCs::Select,""],"customer_id" => ["客户",InputCs::Select,"custs"]];
         $pz["edit"] = ["cat_id" => ["类型",InputCs::TextRead,"good->cat->name"],"good_id" => ["名称",InputCs::TextRead,"good->name"],"customer_id" => ["客户",InputCs::TextRead,"customer->name"]];
         $pz["bixu"] = ["price" => "价格", "amount" => "数量", "date" => ["日期",InputCs::Date], "who" => "经手人"];
         $pz["qita"] = [];

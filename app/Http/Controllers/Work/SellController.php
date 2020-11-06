@@ -3,7 +3,7 @@
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
  * Date: 2020-11-06
- * Time: 06:49
+ * Time: 15:34
  */
 
 namespace App\Http\Controllers\Work;
@@ -71,7 +71,7 @@ class SellController extends Controller
     public function create()
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $tasks = drc_selectAll("goods");
+            $tasks = drc_selectAll("cats");
             $custs = drc_selectAll("customers");
             return view($this->urltoview . ".create", ["tasks" => $tasks ,"custs" => $custs ]);
         }

@@ -79,21 +79,19 @@
     <script language="JavaScript">
         function getGoods(id) {
             $.ajax({
-                type: "POST",
-                url: "{{ url('/ajax/cat') }}",
+                type: "get",
+                url: "{{ url('Ajax/Cat') }}",
                 dataType: 'json',
                 header: {'X-CRSF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: {
                     "id": id,
                 },
-                success: function (data) {
-                    if(data.code == 'success'){
+                success: function (data,type) {
+                    if(type == 'success'){
                         $("select[name='good_id']").empty();
-
-                        // 实际的应用中，这里的option一般都是用循环生成多个了
-                        var option = $("<option>").val(1).text("pxx");
-                        $(".selector2").append(option);
-
+                        $.each(data, function(id, label){
+                            $("select[name='good_id']").append($("<option>").val(id).text(label));
+                        });
                     }
                 },
             });
@@ -102,6 +100,8 @@
         $("select[name='cat_id']").change(function () {
             getGoods($("select[name='cat_id']").val());
         });
+
+        $("select[name='cat_id']").change();
 
     </script>
 @endsection
