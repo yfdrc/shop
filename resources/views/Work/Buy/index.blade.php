@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03")@can("index", new \App\Models\Role) || {!! link_to("Work\Buy/create","增加买入商品") !!}@endcan 
         </div>
@@ -48,13 +48,13 @@
                                         <td width="15%">
                                             <div>{{ $task->supplier->name }}</div>
                                         </td>
-                                        <td width="5%">
+                                        <td width="8%">
                                             <div>{{ $task->price }}</div>
                                         </td>
-                                        <td width="5%">
+                                        <td width="8%">
                                             <div>{{ $task->amount }}</div>
                                         </td>
-                                        <td width="5%">
+                                        <td width="8%">
                                             <div>{{ $task->money }}</div>
                                         </td>
                                         <td width="10%">

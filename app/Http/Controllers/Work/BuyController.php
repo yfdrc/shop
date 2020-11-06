@@ -2,8 +2,8 @@
 /**
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
- * Date: 2020-11-05
- * Time: 16:14
+ * Date: 2020-11-06
+ * Time: 06:49
  */
 
 namespace App\Http\Controllers\Work;
@@ -71,7 +71,7 @@ class BuyController extends Controller
     public function create()
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $tasks = drc_selectAll("goods");
+            $tasks = drc_selectAll("cats");
             $supps = drc_selectAll("suppliers");
             return view($this->urltoview . ".create", ["tasks" => $tasks ,"supps" => $supps ]);
         }
@@ -87,8 +87,6 @@ class BuyController extends Controller
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
             $input = $request->all();
-            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
-            $input["name"] = Good::find($input["good_id"])->name;
             Buy::create($input);
             return redirect($this->urltoparent);
         }
@@ -137,7 +135,6 @@ class BuyController extends Controller
         if (auth()->check() and auth()->user()->can("index", new Role)) {
             $model = Buy::findOrFail($id);
             $input = $request->all();
-            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             $model->fill($input)->save();
             return redirect($this->urltoparent);
         }

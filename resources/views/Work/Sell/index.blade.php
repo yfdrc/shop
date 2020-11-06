@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03")@can("index", new \App\Models\Role) || {!! link_to("Work\Sell/create","增加卖出商品") !!}@endcan 
         </div>
@@ -26,6 +26,7 @@
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
+                                <th>类型</th>
                                 <th>名称</th>
                                 <th>客户</th>
                                 <th>价格</th>
@@ -38,19 +39,22 @@
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td width="20%">
+                                        <td width="10%">
+                                            <div>{{ $task->good->cat->name }}</div>
+                                        </td>
+                                        <td width="15%">
                                             <div>{{ $task->good->name }}</div>
                                         </td>
                                         <td width="15%">
                                             <div>{{ $task->customer->name }}</div>
                                         </td>
-                                        <td width="10%">
+                                        <td width="5%">
                                             <div>{{ $task->price }}</div>
                                         </td>
-                                        <td width="10%">
+                                        <td width="5%">
                                             <div>{{ $task->amount }}</div>
                                         </td>
-                                        <td width="10%">
+                                        <td width="5%">
                                             <div>{{ $task->money }}</div>
                                         </td>
                                         <td width="10%">

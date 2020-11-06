@@ -19,6 +19,10 @@ Route::group(['namespace' => 'Home'], function () {
     Route::get('/', 'HomeController@index')->name('home');
 });
 
+Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function(){
+    Route::post('cat', 'AjaxController@cat');
+});
+
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'Install'], function () {
         Route::get('test', 'TestController@index');

@@ -2,8 +2,8 @@
 /**
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
- * Date: 2020-08-05
- * Time: 08:27
+ * Date: 2020-11-06
+ * Time: 03:50
  */
 
 namespace App\Http\Controllers\User;
@@ -103,7 +103,7 @@ class DepartmentController extends Controller
     {
         if (auth()->check() and auth()->user()->can("manage", new Role)) {
             $model = Department::findOrFail($id);
-            $department = drc_selectAll("department");
+            $department = drc_selectAll("departments");
             return view($this->urltoview . ".edit", ["task" => $model, "department" => $department ]);
         }
         return redirect($this->urltoparent)->withErrors([".你没有编辑权限。."]);

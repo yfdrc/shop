@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03") || {!! link_to("Work\Sell/create","增加卖出商品") !!} |  {!! link_to("Work\Sell/$task->id/edit","编辑卖出商品") !!} 
         </div>
@@ -13,6 +13,12 @@
                 </div>
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"Work\Sell/$task->id", "method" => "DELETE", "class" => "form-horizontal"]) }}
+                        <div class="form-group">
+                            {{ Form::label("good->cat->name", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                            <div class="col-sm-6">
+                                {{ Form::text("good->cat->name", $task->good->cat->name, ["class"=>"form-control", 'readonly'=>'ReadOnly']) }}
+                            </div>
+                        </div>
                         <div class="form-group">
                             {{ Form::label("name", "名称", ["class"=>"col-sm-3 control-label"]) }}
                             <div class="col-sm-6">

@@ -2,18 +2,18 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
-            快捷方式：@include("layouts.shortcut01") || @can("manage", new \App\Models\Role){!! link_to("User\Department/create","增加部门") !!} | @endcan {!! link_to("User\Department/$task->id","部门详情") !!}
+            快捷方式：@include("layouts.shortcut01") || {!! link_to("User\Department/create","增加部门") !!} |  {!! link_to("User\Department/$task->id","部门详情") !!}
         </div>
         <div class="panel-body">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     编辑部门
                 </div>
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"User\Department/$task->id", "method" => "PUT", "class" => "form-horizontal"]) }}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             必填项目
                         </div>
@@ -30,30 +30,30 @@
                                     {{ Form::text("name", null, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
-                        <div class="col-sm-6">
-                            {{ Form::text("description", null, ["class"=>"form-control"]) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label("telephone", "电话", ["class"=>"col-sm-3 control-label"]) }}
-                        <div class="col-sm-6">
-                            {{ Form::text("telephone", null, ["class"=>"form-control"]) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label("email", "邮件", ["class"=>"col-sm-3 control-label"]) }}
-                        <div class="col-sm-6">
-                            {{ Form::text("email", null, ["class"=>"form-control"]) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ Form::label("address", "地址", ["class"=>"col-sm-3 control-label"]) }}
-                        <div class="col-sm-6">
-                            {{ Form::text("address", null, ["class"=>"form-control"]) }}
+                            <div class="form-group">
+                                {{ Form::label("description", "描述", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("description", null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label("telephone", "电话", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("telephone", null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label("email", "邮件", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("email", null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label("address", "地址", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::text("address", null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

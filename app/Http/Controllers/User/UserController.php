@@ -2,8 +2,8 @@
 /**
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
- * Date: 2020-08-05
- * Time: 08:27
+ * Date: 2020-11-06
+ * Time: 03:50
  */
 
 namespace App\Http\Controllers\User;
@@ -56,7 +56,7 @@ class UserController extends Controller
     public function create()
     {
         if (auth()->check() and auth()->user()->can("department", new Role)) {
-            $department = drc_selectAll("department");
+            $department = drc_selectAll("departments");
             return view($this->urltoview . ".create", ["department" => $department ]);
         }
     }
@@ -103,7 +103,7 @@ class UserController extends Controller
     {
         if (auth()->check() and auth()->user()->can("department", new Role)) {
             $model = User::findOrFail($id);
-            $department = drc_selectAll("department");
+            $department = drc_selectAll("departments");
             return view($this->urltoview . ".edit", ["task" => $model, "department" => $department ]);
         }
         return redirect($this->urltoparent)->withErrors([".你没有编辑权限。."]);
@@ -125,6 +125,7 @@ class UserController extends Controller
                 $input = $request->except(["password"]);
             }else{
                 $input = $request->all();
+                $input["password"] =  bcrypt($request["password"]);
             }
             $model->fill($input)->save();
             return redirect($this->urltoparent);

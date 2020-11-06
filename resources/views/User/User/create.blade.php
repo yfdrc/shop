@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut01")
         </div>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="panel-body">
                     {!! Form::open(["url"=>"User\User","method"=>"POST","class"=>"form-horizontal"]) !!}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             必填项目
                         </div>
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 {{ Form::label("password", "密码", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::password("password", null, ["class"=>"form-control"]) }}
+                                    {{ Form::text("password", null, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                         </div>

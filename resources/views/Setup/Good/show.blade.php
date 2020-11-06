@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut02") || {!! link_to("Setup\Good/create","增加商品信息") !!} |  {!! link_to("Setup\Good/$task->id/edit","编辑商品信息") !!} 
         </div>

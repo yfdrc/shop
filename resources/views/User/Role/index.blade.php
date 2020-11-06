@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut01")@can("admin", new \App\Models\Role) || {!! link_to("User\Role/create","增加角色") !!}@endcan 
         </div>
@@ -24,16 +24,16 @@
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td class="table-text">
+                                        <td width="10%">
                                             <div>{{ $task->name }}</div>
                                         </td>
-                                        <td class="table-text">
+                                        <td width="10%">
                                             <div>{{ $task->label }}</div>
                                         </td>
-                                        <td class="table-text">
+                                        <td width="10%">
                                             <div>{{ $task->right }}</div>
                                         </td>
-                                        <td class="table-text">
+                                        <td width="25%">
                                             <div>{{ $task->description }}</div>
                                         </td>
                                         <td>

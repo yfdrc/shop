@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03")
         </div>
@@ -13,15 +13,21 @@
                 </div>
                 <div class="panel-body">
                     {!! Form::open(["url"=>"Work\Buy","method"=>"POST","class"=>"form-horizontal"]) !!}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             必填项目
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
+                                {{ Form::label("good_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
+                                <div class="col-sm-6">
+                                    {{ Form::select("cat_id",$tasks, null, ["class"=>"form-control"]) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label("good_id", "名称", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::select("good_id",$tasks, null, ["class"=>"form-control"]) }}
+                                    {{ Form::select("good_id",[], null, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,7 +51,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::date("date", 2020-11-05, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", 2020-11-06, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,4 +73,35 @@
         </div>
     </div>
 
+@endsection
+
+@section("script")
+    <script language="JavaScript">
+        function getGoods(id) {
+            $.ajax({
+                type: "POST",
+                url: "{{ url('/ajax/cat') }}",
+                dataType: 'json',
+                header: {'X-CRSF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {
+                    "id": id,
+                },
+                success: function (data) {
+                    if(data.code == 'success'){
+                        $("select[name='good_id']").empty();
+
+                        // 实际的应用中，这里的option一般都是用循环生成多个了
+                        var option = $("<option>").val(1).text("pxx");
+                        $(".selector2").append(option);
+
+                    }
+                },
+            });
+        };
+
+        $("select[name='cat_id']").change(function () {
+            getGoods($("select[name='cat_id']").val());
+        });
+
+    </script>
 @endsection

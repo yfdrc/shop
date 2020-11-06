@@ -2,18 +2,18 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut02") || {!! link_to("Setup\Supplier/create","增加主供货商") !!} |  {!! link_to("Setup\Supplier/$task->id","主供货商详情") !!}
         </div>
         <div class="panel-body">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     编辑主供货商
                 </div>
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"Setup\Supplier/$task->id", "method" => "PUT", "class" => "form-horizontal"]) }}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             必填项目
                         </div>

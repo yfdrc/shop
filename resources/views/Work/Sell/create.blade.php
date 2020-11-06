@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03")
         </div>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="panel-body">
                     {!! Form::open(["url"=>"Work\Sell","method"=>"POST","class"=>"form-horizontal"]) !!}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             必填项目
                         </div>
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 {{ Form::label("date", "日期", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::date("date", 2020-11-05, ["class"=>"form-control"]) }}
+                                    {{ Form::date("date", 2020-11-06, ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

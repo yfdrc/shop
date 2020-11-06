@@ -2,9 +2,9 @@
 
 @section("content")
 
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
-            快捷方式： @include("layouts.shortcut01")
+            快捷方式：@include("layouts.shortcut01")
         </div>
         <div class="panel-body">
             @if (count($tasks) > 0)
@@ -22,10 +22,10 @@
                             <tbody>
                                 @foreach ($tasks as $task)
                                     <tr>
-                                        <td class="table-text">
+                                        <td width="10%">
                                             <div>{{ $task->name }}</div>
                                         </td>
-                                        <td class="table-text">
+                                        <td width="60%">
                                             <div>{{ $task->getRolesLabel() }}</div>
                                         </td>
                                         <td>
