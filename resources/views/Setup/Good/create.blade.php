@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 {{ Form::label("cat_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::select("cat_id",$tasks, null, ["class"=>"form-control"]) }}
+                                    {{ Form::select("cat_id",$tasks, Cache::get("good_catid"), ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">

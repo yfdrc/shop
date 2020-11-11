@@ -2,18 +2,18 @@
 
 @section("content")
 
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading">
             快捷方式：@include("layouts.shortcut03") || {!! link_to("Work\Sell/create","增加卖出商品") !!} |  {!! link_to("Work\Sell/$task->id","卖出商品详情") !!}
         </div>
         <div class="panel-body">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     编辑卖出商品
                 </div>
                 <div class="panel-body">
                     {{ Form::model($task, ["url"=>"Work\Sell/$task->id", "method" => "PUT", "class" => "form-horizontal"]) }}
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             必填项目
                         </div>

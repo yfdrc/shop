@@ -14,10 +14,10 @@
                     <input class="btn btn-success" name="btn" type="submit" value="今年">
                     <input class="btn btn-warning" name="btn" type="submit" value="上月">
                     <div class="form-group">
-                        开始日期：<input type="date" class="form-control" name="datestart" value="{!! Illuminate\Support\Facades\Cache::get("tjdatestart") !!}">
+                        开始日期：<input type="date" class="form-control" name="datestart" value="{!! Cache::get("tjdatestart") !!}">
                     </div>
                     <div class="form-group">
-                        结束日期：<input type="date" class="form-control" name="dateend" value="{!! Illuminate\Support\Facades\Cache::get("tjdateend") !!}">
+                        结束日期：<input type="date" class="form-control" name="dateend" value="{!! Cache::get("tjdateend") !!}">
                     </div>
                     <input class="btn btn-default" name="btn" type="submit" value="确定">
                     <div class="form-group">
@@ -28,10 +28,10 @@
                     <div class="collapse" id="collapseMore">
                         <div class="card card-body">
                             <div class="form-group">
-                                每页行数：<input type="text" class="cxsinput" name="xshs" value="{!! Illuminate\Support\Facades\Cache::get("tjhs") !!}">
+                                每页行数：<input type="text" class="cxsinput" name="xshs" value="{!! Cache::get("tjhs") !!}">
                             </div>
                             <div class="form-group">
-                                查询：<input type="text" class="cxlinput" name="cxnr" value="{!! Illuminate\Support\Facades\Cache::get("tjcx") !!}" placeholder="商品名称">
+                                查询：<input type="text" class="cxlinput" name="cxnr" value="{!! Cache::get("tjcx") !!}" placeholder="商品名称">
                             </div>
                         </div>
                     </div>

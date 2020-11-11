@@ -2,8 +2,8 @@
 /**
  * Created by AutoMaker from drc/tools.
  * User: yfdrc
- * Date: 2020-11-06
- * Time: 15:34
+ * Date: 2020-11-11
+ * Time: 00:55
  */
 
 namespace App\Http\Controllers\Work;
@@ -86,8 +86,13 @@ class SellController extends Controller
     public function store(Request $request)
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $input = $request->all();
+            $input = $request->except("cat_id");
+            $input["name"] = Good::find($request["good_id"])->name;
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             Sell::create($input);
+            Cache::forever("buy_catid", $request["cat_id"]);
+            Cache::forever("buy_goodid", $request["good_id"]);
+            Cache::forever("buy_customerid", $request["customer_id"]);
             return redirect($this->urltoparent);
         }
         return redirect($this->urltoparent)->withErrors([".你没有新建权限。."]);
@@ -135,6 +140,7 @@ class SellController extends Controller
         if (auth()->check() and auth()->user()->can("index", new Role)) {
             $model = Sell::findOrFail($id);
             $input = $request->all();
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             $model->fill($input)->save();
             return redirect($this->urltoparent);
         }

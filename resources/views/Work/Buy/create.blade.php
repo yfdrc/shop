@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 {{ Form::label("good_id", "类型", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::select("cat_id",$tasks, null, ["class"=>"form-control"]) }}
+                                    {{ Form::select("cat_id",$tasks, Cache("sell_catid"), ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 {{ Form::label("supplier_id", "供货商", ["class"=>"col-sm-3 control-label"]) }}
                                 <div class="col-sm-6">
-                                    {{ Form::select("supplier_id",$supps, null, ["class"=>"form-control"]) }}
+                                    {{ Form::select("supplier_id",$supps, Cache("sell_supplierid"), ["class"=>"form-control"]) }}
                                 </div>
                             </div>
                             <div class="form-group">
@@ -88,9 +88,15 @@
                 },
                 success: function (data,type) {
                     if(type == 'success'){
+                        var oldid = "<?php echo Cache("sell_goodid"); ?>";
                         $("select[name='good_id']").empty();
                         $.each(data, function(id, label){
-                            $("select[name='good_id']").append($("<option>").val(id).text(label));
+                            if( oldid == id){
+                                $option = $("<option>").val(id).prop("selected",true).text(label);
+                            }else{
+                                $option = $("<option>").val(id).text(label);
+                            }
+                            $("select[name='good_id']").append($option);
                         });
                     }
                 },

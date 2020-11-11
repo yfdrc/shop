@@ -11,7 +11,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "drc/tools": "~1.1.4",
+        "drc/tools": "~1.2.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",

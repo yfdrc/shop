@@ -87,8 +87,13 @@ class BuyController extends Controller
     public function store(Request $request)
     {
         if (auth()->check() and auth()->user()->can("index", new Role)) {
-            $input = $request->all();
+            $input = $request->except("cat_id");
+            $input["name"] = Good::find($request["good_id"])->name;
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             Buy::create($input);
+            Cache::forever("sell_catid", $request["cat_id"]);
+            Cache::forever("sell_goodid", $request["good_id"]);
+            Cache::forever("sell_supplierid", $request["supplier_id"]);
             return redirect($this->urltoparent);
         }
         return redirect($this->urltoparent)->withErrors([".你没有新建权限。."]);
@@ -136,6 +141,7 @@ class BuyController extends Controller
         if (auth()->check() and auth()->user()->can("index", new Role)) {
             $model = Buy::findOrFail($id);
             $input = $request->all();
+            $input["money"] = ((int)(((int)($input["price"]*100) * (int)($input["amount"]*100))/100))/100.0;
             $model->fill($input)->save();
             return redirect($this->urltoparent);
         }

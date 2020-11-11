@@ -10,10 +10,10 @@
             <div>
                 <form method="put" class="form-inline"]>
                     <div class="form-group">
-                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Illuminate\Support\Facades\Cache::get("supphs") !!}">
+                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Cache::get("supphs") !!}">
                     </div>
                     <div class="form-group">
-                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Illuminate\Support\Facades\Cache::get("suppcx") !!}" placeholder="名称">
+                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Cache::get("suppcx") !!}" placeholder="名称">
                     </div>
                     <button type="submit" class="btn btn-default">确定</button>
                 </form>

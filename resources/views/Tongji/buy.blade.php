@@ -10,16 +10,16 @@
             <div>
                 <form method="put" class="form-inline"]>
                     <div class="form-group">
-                        开始日期：<input type="date" class="form-control" name="datestart" value="{!! Illuminate\Support\Facades\Cache::get("buydatestart") !!}">
+                        开始日期：<input type="date" class="form-control" name="datestart" value="{!! Cache::get("buydatestart") !!}">
                     </div>
                     <div class="form-group">
-                        结束日期：<input type="date" class="form-control" name="dateend" value="{!! Illuminate\Support\Facades\Cache::get("buydateend") !!}">
+                        结束日期：<input type="date" class="form-control" name="dateend" value="{!! Cache::get("buydateend") !!}">
                     </div>
                     <div class="form-group">
-                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Illuminate\Support\Facades\Cache::get("buytjhs") !!}">
+                        每页行数：<input type="text" class="form-control" name="xshs" value="{!! Cache::get("buytjhs") !!}">
                     </div>
                     <div class="form-group">
-                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Illuminate\Support\Facades\Cache::get("buytjcx") !!}" placeholder="购买商品统计">
+                        查询：<input type="text" class="form-control" name="cxnr" value="{!! Cache::get("buytjcx") !!}" placeholder="购买商品统计">
                     </div>
                     <button type="submit" class="btn btn-default">确定</button>
                 </form>

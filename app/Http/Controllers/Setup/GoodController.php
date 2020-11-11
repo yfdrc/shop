@@ -87,6 +87,7 @@ class GoodController extends Controller
             $this->validate($request, ["name" => "required"]);
             $input = $request->all();
             Good::create($input);
+            Cache::forever("good_catid", $request["cat_id"]);
             return redirect($this->urltoparent);
         }
         return redirect($this->urltoparent)->withErrors([".你没有新建权限。."]);

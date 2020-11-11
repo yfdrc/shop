@@ -37,9 +37,9 @@ class CreateShopTable extends Migration
             $table->integer('cat_id')->unsigned();
             $table->string('name',128);
             $table->string('from',128)->nullable();
-            $table->double('buy')->default(0);
-            $table->double('sell')->default(0);
-            $table->double('howlong')->default(0);
+            $table->double('buy')->nullable();
+            $table->double('sell')->nullable();
+            $table->double('howlong')->nullable();
             $table->timestamps();
             $table->foreign('cat_id') ->references('id') ->on('cats')->onUpdate('cascade')->onDelete('cascade');
         });
@@ -52,7 +52,7 @@ class CreateShopTable extends Migration
             $table->double('price');
             $table->double('amount');
             $table->double('money');
-            $table->date('date')->default("2020-01-01");
+            $table->date('date');
             $table->string('who',32)->nullable();
             $table->timestamps();
             $table->foreign('good_id') ->references('id') ->on('goods')->onUpdate('cascade')->onDelete('cascade');
@@ -67,7 +67,7 @@ class CreateShopTable extends Migration
             $table->double('price');
             $table->double('amount');
             $table->double('money');
-            $table->date('date')->default("2020-01-01");
+            $table->date('date');
             $table->string('who',32)->nullable();
             $table->timestamps();
             $table->foreign('good_id') ->references('id') ->on('goods')->onUpdate('cascade')->onDelete('cascade');
